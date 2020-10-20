@@ -94,40 +94,54 @@ const App = (props: any) => {
   };
 
   return (
-    <div>
-      <div>
-        <p id='timer-label'>{breakOrSession}</p>
-        <div id='time-left'>
+    <div className='container'>
+      <div className='row justify-content-center'>
+        <div id='time-left' className='large-text'>
           {
             <p>
-              {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+              {minutes}:{seconds < 10 ? `0${seconds}` : seconds} left in the
             </p>
           }
         </div>
-        <button id='start_stop' onClick={() => toggleIsOn(!isOn)}>
+        <p id='timer-label' className='large-text'>
+          {breakOrSession}
+        </p>
+      </div>
+      <div className='row'>
+        <button id='start_stop' onClick={() => toggleIsOn(!isOn)} className='btn btn-success col-sm'>
           Start Stop
         </button>
-        <button id='reset' onClick={() => reset()}>
+        <button id='reset' onClick={() => reset()} className='btn btn-danger col-sm'>
           Reset
         </button>
       </div>
-      <div id='change-break'>
-        <p id='break-label'>Break Length</p>
-        <p id='break-length'>{breakMinutes}:00</p>
-        <button id='break-decrement' onClick={() => decrementBreak()}>
+      <div id='change-break' className='row justify-content-center'>
+        <button id='break-decrement' onClick={() => decrementBreak()} className='btn btn-info'>
           Decrease Break
         </button>
-        <button id='break-increment' onClick={() => incrementBreak()}>
+        <p id='break-label' className='large-text'>
+          Break Length:{' '}
+        </p>
+        <p id='break-length' className='large-text'>
+          {breakMinutes}:00
+        </p>
+
+        <button id='break-increment' onClick={() => incrementBreak()} className='btn btn-info'>
           Increase Break
         </button>
       </div>
-      <div id='change-session'>
-        <p id='session-label'>Session Length</p>
-        <p id='session-length'>{sessionMinutes}:00</p>
-        <button id='session-decrement' onClick={() => decrementSession()}>
+      <div id='change-session' className='row justify-content-center large-text'>
+        <button id='session-decrement' onClick={() => decrementSession()} className='btn btn-info'>
           Decrease Session
         </button>
-        <button id='session-increment' onClick={() => incrementSession()}>
+        <p id='session-label' className='large-text'>
+          Session Length:{' '}
+        </p>
+        <p id='session-length' className='large-text'>
+          {sessionMinutes}:00
+        </p>
+
+        <button id='session-increment' onClick={() => incrementSession()} className='btn btn-info'>
           Increase Session
         </button>
       </div>

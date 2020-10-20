@@ -1,0 +1,13 @@
+button {
+  margin: 5px;
+}
+
+.large-text {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+#time-left::after {
+  content: ' ';
+  white-space: pre;
+}
